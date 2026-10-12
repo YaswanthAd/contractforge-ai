@@ -1,0 +1,41 @@
+{
+  "scope": "Three designed synthetic fixtures; evidence engine only; no LLM quality or load benchmark.",
+  "results": [
+    {
+      "scenario": "01-safe-migration",
+      "expected": [
+        8,
+        0
+      ],
+      "observed": [
+        8,
+        0
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "02-lossy-cast",
+      "expected": [
+        3,
+        5
+      ],
+      "observed": [
+        3,
+        5
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "03-enum-break",
+      "expected": [
+        6,
+        2
+      ],
+      "observed": [
+        6,
+        2
+      ],
+      "passed": true
+    }
+  ]
+}

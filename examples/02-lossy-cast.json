@@ -1,0 +1,138 @@
+{
+  "title": "The integer cast that silently loses money.",
+  "source": {
+    "name": "checkout_events",
+    "version": "1.0",
+    "identity_field": "event_id",
+    "allow_extra": true,
+    "fields": [
+      {
+        "name": "event_id",
+        "type": "string",
+        "semantic": "event_identity"
+      },
+      {
+        "name": "customer_id",
+        "type": "string",
+        "semantic": "customer_identity"
+      },
+      {
+        "name": "amount_cents",
+        "type": "integer",
+        "semantic": "order_value",
+        "unit": "cents"
+      },
+      {
+        "name": "event_time",
+        "type": "timestamp",
+        "semantic": "event_time"
+      },
+      {
+        "name": "country",
+        "type": "string"
+      }
+    ]
+  },
+  "target": {
+    "name": "checkout_events",
+    "version": "2.1",
+    "identity_field": "event_id",
+    "allow_extra": true,
+    "fields": [
+      {
+        "name": "event_id",
+        "type": "string",
+        "semantic": "event_identity"
+      },
+      {
+        "name": "buyer_id",
+        "type": "string",
+        "semantic": "customer_identity",
+        "aliases": [
+          "customer_id"
+        ]
+      },
+      {
+        "name": "amount",
+        "type": "integer",
+        "semantic": "order_value",
+        "unit": "usd",
+        "aliases": [
+          "amount_cents"
+        ]
+      },
+      {
+        "name": "occurred_at",
+        "type": "timestamp",
+        "semantic": "event_time",
+        "aliases": [
+          "event_time"
+        ]
+      },
+      {
+        "name": "country",
+        "type": "string"
+      }
+    ]
+  },
+  "events": [
+    {
+      "event_id": "evt-001",
+      "customer_id": "buyer-001",
+      "amount_cents": 1299,
+      "event_time": "2026-10-11T10:01:00+00:00",
+      "country": "US"
+    },
+    {
+      "event_id": "evt-002",
+      "customer_id": "buyer-002",
+      "amount_cents": 2500,
+      "event_time": "2026-10-11T10:02:00+00:00",
+      "country": "CA"
+    },
+    {
+      "event_id": "evt-003",
+      "customer_id": "buyer-003",
+      "amount_cents": 999,
+      "event_time": "2026-10-11T10:03:00+00:00",
+      "country": "US"
+    },
+    {
+      "event_id": "evt-004",
+      "customer_id": "buyer-004",
+      "amount_cents": 1875,
+      "event_time": "2026-10-11T10:04:00+00:00",
+      "country": "MX"
+    },
+    {
+      "event_id": "evt-005",
+      "customer_id": "buyer-005",
+      "amount_cents": 0,
+      "event_time": "2026-10-11T10:05:00+00:00",
+      "country": "US"
+    },
+    {
+      "event_id": "evt-006",
+      "customer_id": "buyer-006",
+      "amount_cents": 4599,
+      "event_time": "2026-10-11T10:06:00+00:00",
+      "country": "CA"
+    },
+    {
+      "event_id": "evt-007",
+      "customer_id": "buyer-007",
+      "amount_cents": 100,
+      "event_time": "2026-10-11T10:07:00+00:00",
+      "country": "US"
+    },
+    {
+      "event_id": "evt-008",
+      "customer_id": "buyer-008",
+      "amount_cents": 8250,
+      "event_time": "2026-10-11T10:08:00+00:00",
+      "country": "GB"
+    }
+  ],
+  "analyst": "rules",
+  "max_reject_rate": 0
+}
